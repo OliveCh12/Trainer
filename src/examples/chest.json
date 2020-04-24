@@ -1,0 +1,58 @@
+[
+    {
+      "name": "Chest Press",
+      "sets": [
+        { "isCompleted": false },
+        { "isCompleted": false },
+        { "isCompleted": false }
+      ],
+      "reps": 10,
+      "rest": 90,
+      "isCompleted": false
+    },
+    {
+      "name": "Flat Bench Dumbbell Press",
+      "sets": [
+        { "isCompleted": false },
+        { "isCompleted": false },
+        { "isCompleted": false },
+        { "isCompleted": false }
+      ],
+      "reps": 12,
+      "rest": 90,
+      "isCompleted": false
+    },
+    {
+      "name": "Low-Incline Barbell Bench Press ",
+      "sets": [
+        { "isCompleted": false },
+        { "isCompleted": false },
+        { "isCompleted": false }
+      ],
+      "reps": 10,
+      "rest": 90,
+      "isCompleted": false
+    },
+    {
+      "name": "Machine Decline Press ",
+      "sets": [
+        { "isCompleted": false },
+        { "isCompleted": false },
+        { "isCompleted": false }
+      ],
+      "reps": 15,
+      "rest": 60,
+      "isCompleted": false
+    },
+    {
+        "name": "Seated Machine Chest Press",
+        "sets": [
+          { "isCompleted": false },
+          { "isCompleted": false },
+          { "isCompleted": false }
+        ],
+        "reps": 15,
+        "rest": 60,
+        "isCompleted": false
+      }
+  ]
