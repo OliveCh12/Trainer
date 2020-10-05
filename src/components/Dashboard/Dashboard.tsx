@@ -27,14 +27,16 @@ const Dashboard = () => {
         <main className="dashboard">
             <div className="container">
                 <div className="dashboard__layout">
-                    
-                <div className="tasks">
-                    {tasks.slice(0, 1).map((task: any, index: number) => (
-                        <Task title={task.name} sets={task.sets} rest={task.rest} reps={task.reps} index={index} />
-                    ))}
-                </div>
 
-                <CountDown rest={10} />
+                    <div className="card">
+                    <div className="tasks">
+                        {tasks.slice(0, 1).map((task: any, index: number) => (
+                            <Task title={task.name} sets={task.sets} rest={task.rest} reps={task.reps} index={index} />
+                        ))}
+                    </div>
+                    </div>
+
+                    <CountDown rest={10} />
                 </div>
             </div>
         </main>

@@ -22,7 +22,7 @@ const CountDown = (props: Props) => {
 
   const [context, setContext] = useContext(GlobalContext)
   const [isActive, setIsActive] = useState(false)
-  const [seconds, setSeconds] = useState(1)
+  const [seconds, setSeconds] = useState(5)
 
   const rest = [...context].filter((item: any) => item.isCompleted === false)
 
@@ -32,13 +32,12 @@ const CountDown = (props: Props) => {
   const click = new UIfx(clickSound, { volume: 1 })
   const toggle = new UIfx(toggleSound, { volume: 1 })
 
-
-
-
+  // Trigger Timer
   function handleToggle() {
     setIsActive(!isActive)
   }
 
+  // Trigger Next Exercice
   function handleNext() {
     toggle.play()
     const finished = [...context].filter((item: any) => item.isCompleted === false)
@@ -50,7 +49,10 @@ const CountDown = (props: Props) => {
     }
   }
 
+  // Trigger Previous Exercice
   function handlePrev() {
+    click.play()
+
     const finished = [...context].filter((item: any) => item.isCompleted === true)
     if (finished.length <= 0) {
       alert('You reach the top')
@@ -60,6 +62,7 @@ const CountDown = (props: Props) => {
     }
   }
 
+  // Trigger Next Set (If all sets are done, NextStep() is triggered)
   function handleNextSet() {
     click.play()
 
@@ -77,18 +80,16 @@ const CountDown = (props: Props) => {
 
   }
 
-
-
   // Trigger handle Next start
   function handleSpaceNext(event: any) {
     if (event.code === "Space") {
-      handleNextSet()
+      handleToggle()
     }
   }
 
   // Listening when space bar is pressed.
   useEffect(() => {
-    document.addEventListener('keydown', handleSpaceNext, false)
+    document.addEventListener('keypress', handleSpaceNext, false)
   }, [])
 
 
@@ -116,11 +117,12 @@ const CountDown = (props: Props) => {
   return (
     <div className="card">
       <div className="time-control">
-        <h2> Time left: {seconds} s</h2>
-        <button className="btn btn--dark" onClick={handleToggle}>{isActive ? 'Pause' : 'Start'}</button>
+        <h2> Time left: 00:{seconds} s</h2>
+        {seconds === rest[0].rest ? "Work" : "Rest"}
+        <button className="btn btn--light" onClick={handleToggle}>{isActive ? 'Pause' : 'Start'}</button>
         <button className='btn btn--secondary' onClick={handlePrev}>Previous Exercice</button>
         <button className='btn btn--primary' onClick={handleNext}>Skip Exercice</button>
-        <button className='btn btn--dark' onClick={handleNextSet}>Step done</button>
+        <button className='btn btn--light' onClick={handleNextSet}>Step done</button>
         <p><small>Press <strong>Space bar</strong> when you're done.</small></p>
       </div>
     </div>

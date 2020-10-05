@@ -10,7 +10,7 @@ export const GlobalProvider = (props: Props) => {
     const [state, setState] = useState([
         {
             name: "Push ups",
-            sets: [{ isCompleted: false }, { isCompleted: false }, { isCompleted: false }],
+            sets: [{ isCompleted: false }, { isCompleted: false }, { isCompleted: false }, { isCompleted: false }, { isCompleted: false }, { isCompleted: false }, { isCompleted: false }],
             reps: 15,
             rest: 5,
             isCompleted: false,

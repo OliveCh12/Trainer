@@ -5,7 +5,7 @@ interface Props {
     name: string,
     reps: number,
     rest: number,
-    sets: number,
+    sets: any,
     isCompleted: boolean,
     handleRemove: any,
     handleDone: any,
@@ -33,8 +33,13 @@ const ListItem = (props: Props) => {
             </div>
             <div className="item__info">
                 <div className="item_reps">Reps : <strong>{props.reps}</strong></div>
-                <div className="item_reps">Sets : <strong>x3</strong></div>
                 <div className="item_reps">Rest : <strong>{timeformat(props.rest)}</strong></div>
+                <div className="item__sets">
+                    {props.sets.length}
+                    {props.sets.map((set: any, index: number) => (
+                        <div className={set.isCompleted ? 'item__set item__set--active' : 'item__set'} key={index}></div>
+                    ))}
+                </div>
             </div>
         </div>
     )

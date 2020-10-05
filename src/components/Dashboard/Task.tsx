@@ -10,16 +10,6 @@ interface Props {
 
 const Task = (props: Props) => {
 
-
-
-    // function handleNextStep(index: number) {
-    //     const initialSets = [...sets]
-
-    //     initialSets[initialSets.length - 1].isCompleted = true
-    //     setSets(initialSets)
-    //     console.log('Sets :', sets)
-    // }
-
     function timeFormat(num: number) {
         const hours = Math.floor(num / 3600);
         const minutes = Math.floor((num - (hours * 3600)) / 60);
@@ -34,7 +24,7 @@ const Task = (props: Props) => {
             </div>
             <div className="task__sets">
                 {props.sets.map((set: any, index: number) => (
-                    <div className={set.isCompleted ? 'task__set task__set--active' : 'task__set'}></div>
+                    <div className={set.isCompleted ? 'task__set task__set--done' : 'task__set'}></div>
                 ))}
             </div>
             <div className="task__bottom">
